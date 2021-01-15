@@ -17,24 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-//closure 
-Route::get('/profil', function () {
- 	return "tes gan";
- })->name('profile');
-
- //route name
- Route::get('tesrn', function () {
-     return route('profile');
+ 
+ //
+ Route::get('/home', function(){
+     return view('Home');
  });
 
- //parameter
- Route::get('/tesrn/{id}', function($id){
-     return $id;
+ Route::get('/about', function(){
+     return view('about');
  });
-
- //controller
- Route::get('/tescontroller', '\App\Http\Controllers\TesCTRL@show');
-
- //resources
- Route::resource('siswa', '\App\Http\Controllers\siswacontroller');
