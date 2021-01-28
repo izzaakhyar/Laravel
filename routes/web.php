@@ -33,3 +33,6 @@ Route::get('/', function () {
  
 Route::get('/siswa', '\App\Http\Controllers\SiswaController@index');
 Route::post('/siswa/create', '\App\Http\Controllers\SiswaController@create');
+Route::get('/siswa/{id}/edit', '\App\Http\Controllers\SiswaController@edit');
+Route::post('/siswa/{id}/update', '\App\Http\Controllers\SiswaController@update');
+Route::get('/siswa/{id}/delete', '\App\Http\Controllers\SiswaController@delete');
