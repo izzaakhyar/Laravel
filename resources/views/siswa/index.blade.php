@@ -34,7 +34,8 @@
                     <td>{{$siswa->alamat}}</td>
                     <td>
                         <a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="/siswa/{{$siswa->id}}/delete" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="/siswa/{{$siswa->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm
+                        ('Apakah anda yakin ingin menghapus?')">Delete</a>
                     </td>
 
                 </tr>
@@ -58,11 +59,19 @@
             {{csrf_field()}}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nama Depan</label>
-                    <input type="text" name="nama_depan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Depan">
+                    <input type="text" name="nama_depan" class="form-control" placeholder="Nama Depan"
+                    value="{{old('nama_depan')}}">
+                    @error('nama_depan')
+                        <div class="text-danger small">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nama Belakang</label>
-                    <input type="text" name="nama_belakang" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Belakang">
+                    <input type="text" name="nama_belakang" class="form-control" placeholder="Nama Belakang"
+                    value="{{old('nama_belakang')}}">
+                    @error('nama_belakang')
+                        <div class="text-danger small">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                 <label for="exampleFormControlSelect1">Pilih Jenis Kelammin</label>
@@ -73,11 +82,19 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Umur</label>
-                    <input type="number" min="1" name="umur" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Umur">
+                    <input type="number" min="1" name="umur" class="form-control" placeholder="Umur"
+                    value="{{old('umur')}}">
+                    @error('umur')
+                        <div class="text-danger small">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputTextarea1">Alamat</label>
-                    <textarea id="exampleFormControlTextarea1" name="alamat" rows="3" class="form-control"></textarea>
+                    <textarea id="exampleFormControlTextarea1" name="alamat" rows="3" class="form-control">
+                    {{old('alamat')}}</textarea>
+                    @error('alamat')
+                        <div class="text-danger small">{{ $message }}</div>
+                    @enderror
                 </div>
         </div>
         <div class="modal-footer">

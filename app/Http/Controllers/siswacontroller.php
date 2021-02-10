@@ -12,6 +12,14 @@ class SiswaController extends Controller
     }
 
     public function create(Request $request){
+        
+        $validated = $request->validate([
+            'nama_depan' => 'required',
+            'umur' => 'required',
+            'alamat' => 'required',
+        ]);
+        
+        
         \App\Models\Siswa::create($request->all());
         return redirect('/siswa')->with('sukses','Data berhasil diinput');
     }
